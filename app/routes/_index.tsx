@@ -18,6 +18,17 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 
 export default function Index() {
+  return (
+    <>
+      <Main />
+      <Link to={{
+        pathname: "/new",
+      }}>new</Link>
+    </>
+  )
+}
+
+function Main() {
   const completeUnix = useLoaderData<typeof loader>();
   const completeUnixwms = completeUnix * 1000;
   const limit = new Date(completeUnixwms);
@@ -43,9 +54,7 @@ export default function Index() {
     return (
       <div>
         <div>Time's up!</div>
-        <Link to={{
-          pathname: "/new",
-        }}>new</Link>
+
       </div>
     )
   }
@@ -73,9 +82,6 @@ export default function Index() {
       <div>
         {limit.toLocaleDateString("ja-JP")}
       </div>
-      <Link to={{
-        pathname: "/new",
-      }}>new</Link>
     </div>
   );
 }
