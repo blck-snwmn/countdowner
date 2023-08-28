@@ -68,7 +68,7 @@ export default function Index() {
         {/* {r.toLocaleDateString()} */}
       </div>
       <div>
-        {limit.toLocaleDateString()}
+        {limit.toLocaleDateString("ja-JP")}
       </div>
     </div>
   );
