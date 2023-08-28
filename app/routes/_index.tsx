@@ -57,7 +57,7 @@ export default function Index() {
 
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+    <div>
       <div>
         <div>{rDays} days</div>
         <div>{rHours} hours</div>
