@@ -51,12 +51,7 @@ function Main() {
   // 0秒のあと数秒立つのを修正する
   if (limitUnix <= date.getTime() + 1) {
     console.log("time's up")
-    return (
-      <div>
-        <div>Time's up!</div>
-
-      </div>
-    )
+    return <TimeUp />
   }
 
   const rr = limit.getTime() - date.getTime();
@@ -84,4 +79,12 @@ function Main() {
       </div>
     </div>
   );
+}
+
+function TimeUp() {
+  return (
+    <div>
+      <div>Time's up!</div>
+    </div>
+  )
 }
