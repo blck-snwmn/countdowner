@@ -53,15 +53,23 @@ function Main() {
     console.log("time's up")
     return <TimeUp />
   }
+  return <Countdown limit={limit} now={date} />
+}
 
-  const rr = limit.getTime() - date.getTime();
+function TimeUp() {
+  return (
+    <div>
+      <div>Time's up!</div>
+    </div>
+  )
+}
+
+function Countdown({ limit, now }: { limit: Date, now: Date }) {
+  const rr = limit.getTime() - now.getTime();
   const rDays = Math.floor(rr / (1000 * 3600 * 24));
   const rHours = Math.floor((rr % (1000 * 3600 * 24)) / (1000 * 3600));
   const rMinutes = Math.floor((rr % (1000 * 3600)) / (1000 * 60));
   const rSeconds = Math.floor((rr % (1000 * 60)) / 1000);
-
-
-
 
   return (
     <div>
@@ -77,14 +85,6 @@ function Main() {
       <div>
         {limit.toLocaleDateString("ja-JP")}
       </div>
-    </div>
-  );
-}
-
-function TimeUp() {
-  return (
-    <div>
-      <div>Time's up!</div>
     </div>
   )
 }
