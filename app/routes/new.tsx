@@ -2,6 +2,7 @@ import { Link } from "@remix-run/react";
 import { useState } from "react";
 
 export default function New() {
+    // FIXME timezone
     const [input, setInput] = useState(new Date().toISOString().slice(0, -5));
     return (
         <main>
