@@ -14,6 +14,9 @@ export default function New() {
             <div>
                 new link: <NewLink input={input} />
             </div>
+            <div>
+                <button onClick={() => setInput(new Date().toISOString().slice(0, -5))}>refresh now</button>
+            </div>
         </main>
     );
 }
