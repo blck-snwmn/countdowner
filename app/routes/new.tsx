@@ -3,11 +3,6 @@ import { useState } from "react";
 
 export default function New() {
     const [input, setInput] = useState(new Date().toISOString().slice(0, -5));
-    console.log(`name: ${input}, ${input === ""}}`);
-    console.log(new Date().toISOString())
-    console.log(new Date().toISOString().slice(0, -5))
-    // const date = new Date(input);
-    // const unix = date.getTime() / 1000;
     return (
         <main>
             <input
