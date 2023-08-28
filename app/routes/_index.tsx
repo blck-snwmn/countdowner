@@ -1,5 +1,5 @@
 import type { LoaderArgs, V2_MetaFunction } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
 export const meta: V2_MetaFunction = () => {
@@ -43,6 +43,9 @@ export default function Index() {
     return (
       <div>
         <div>Time's up!</div>
+        <Link to={{
+          pathname: "/new",
+        }}>new</Link>
       </div>
     )
   }
@@ -70,6 +73,9 @@ export default function Index() {
       <div>
         {limit.toLocaleDateString("ja-JP")}
       </div>
+      <Link to={{
+        pathname: "/new",
+      }}>new</Link>
     </div>
   );
 }
