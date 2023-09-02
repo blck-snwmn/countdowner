@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: "New Remix App" },
+    { title: "Countdown" },
     { name: "description", content: "countdown timer" },
   ];
 };
