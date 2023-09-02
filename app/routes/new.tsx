@@ -62,7 +62,7 @@ function NewLink({ input }: { input: string }) {
     }
     return (
         <Link to={{
-            pathname: "../",
+            pathname: "/countdown",
             search: `?limit=${unix}`
         }}>limit={unix}</Link>
     )
