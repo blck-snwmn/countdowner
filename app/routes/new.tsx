@@ -73,6 +73,8 @@ function NewLink({ input }: { input: string }) {
         <Link to={{
             pathname: "/countdown",
             search: `?limit=${unix}`
-        }}>limit={unix}</Link>
+        }}
+            className="underline text-blue-600 visited:text-purple-600"
+        >limit={unix}</Link>
     )
 }

@@ -23,7 +23,7 @@ export default function Index() {
       <Main />
       <Link to={{
         pathname: "/new",
-      }}>new</Link>
+      }} className="underline text-blue-600 visited:text-purple-600">new</Link>
     </>
   )
 }
