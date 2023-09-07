@@ -1,5 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/cloudflare";
-import { Link } from "@remix-run/react";
+import { Link, Outlet, useOutletContext } from "@remix-run/react";
 import { useState } from "react";
 
 export const meta: V2_MetaFunction = () => {
@@ -26,39 +26,19 @@ function getNow() {
     ]
 }
 
+type ContextType = { input: string; setInput: (input: string) => void; };
+
 export default function New() {
     // FIXME timezone
     const [dateStr, timeStr] = getNow()
-
     const [input, setInput] = useState(`${dateStr}T${timeStr}`);
-    const [date, setDate] = useState(dateStr);
-    const [time, setTime] = useState(timeStr);
 
     return (
         <main>
             <div>
                 new link: <NewLink input={input} />
             </div>
-            <div>
-                <input type="date" value={date} onChange={(e) => {
-                    const date = e.target.value
-                    setDate(date)
-                    setInput(`${date}T${time}`)
-                }} />
-                <input type="time" value={time} onChange={(e) => {
-                    const time = e.target.value
-                    setTime(time)
-                    setInput(`${date}T${time}`)
-                }} />
-            </div>
-            <div>
-                <button onClick={() => {
-                    const [date, time] = getNow()
-                    setInput(`${date}T${time}`)
-                    setDate(date)
-                    setTime(time)
-                }}>refresh now</button>
-            </div>
+            <Outlet context={{ input, setInput } satisfies ContextType} />
         </main>
     );
 }
@@ -77,4 +57,8 @@ function NewLink({ input }: { input: string }) {
             className="underline text-blue-600 visited:text-purple-600"
         >limit={unix}</Link>
     )
+}
+
+export function useInput() {
+    return useOutletContext<ContextType>();
 }
